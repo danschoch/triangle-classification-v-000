@@ -2,9 +2,9 @@ class Triangle
   attr_accessor :a, :b, :c
 
   def initialize(a, b, c)
-    @side_one = side_one
-    @side_two = side_two
-    @side_three = side_three
+    @a = a
+    @b = b
+    @c = c
   end
 
   def valid?
