@@ -7,16 +7,21 @@ class Triangle
     @c = c
   end
 
-  def valid?
-    def grt_than_zero?
-      self.attributes.each {|v| raise TriangleError if v <= 0}
+  def kind
+    validate_triangle
+    if a == b && b == c
+      :equilateral
+    elsif a == b || b == c || a == c
+      :isosceles
+    else
+      :scalene
+    end
   end
 
-  def kind
-    if condition
-
-    end
-
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
   end
 
   class TriangleError < StandardError
