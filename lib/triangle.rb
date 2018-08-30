@@ -20,8 +20,8 @@ class Triangle
 
   def valid_tri?
     real_tri = [(a + b > c), (a + c > b), (b + c > a)]
-    [a, b, c].each { |s| real_triangle << false if s <= 0 }
-    raise TriangleError if real_triangle.include?(false)
+    [a, b, c].each { |s| real_tri << false if s <= 0 }
+    raise TriangleError if real_tri.include?(false)
   end
 
   class TriangleError < StandardError
