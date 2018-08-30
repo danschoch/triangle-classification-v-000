@@ -8,7 +8,8 @@ class Triangle
   end
 
   def valid?
-    @side_one < 0 && @side_two < 0 && @side_three < 0 &&
+    def grt_than_zero?
+      self.attributes.each {|v| raise TriangleError if v <= 0}
   end
 
   def kind
